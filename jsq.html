@@ -14,30 +14,62 @@
     <button id="times-btn">乘</button>
     <button id="divide-btn">除</button>
     <p id="result">运算结果</p>
+    <p id="eit">错误提示</p>
     <script>
+    function num(){
+    	x = document.getElementById('first-number').value;
+		y = Number(document.getElementById('second-number').value);
+		numx = typeof x;
+		//window.alert(numx);
+    }
 	document.getElementById('add-btn').onclick = function(){
-		//var res = x + y;
-		document.getElementById('result').innerHTML = Number(document.getElementById('first-number').value) + Number(document.getElementById('second-number').value);
-	}
+		//document.write(x);
+		//var x = document.getElementById('first-number').value;
+		//var y = document.getElementById('second-number').value;
+		
+		/*
+		if(typeof x=number){
+			window.alert('值为数字');
+		}*/
+		x = document.getElementById('first-number').value;
+		y = document.getElementById('second-number').value;
+		numx = typeof x;
+		//window.alert(typeof x);
+		try{
+			if(isNaN(x)) throw '值不是数字';
 
+		}
+		catch(err){
+			document.getElementById('eit').innerHTML = '错误：' + err;
+			console.log('错误' + err)；
+		}
+		var res = Number(x) + Number(y);
+		document.getElementById('result').innerHTML = res;
+	}
 	document.getElementById('minus-btn').onclick = function(){
 		//var res = x + y;
 		document.getElementById('result').innerHTML = Number(document.getElementById('first-number').value) - Number(document.getElementById('second-number').value);
 	}
-
 	document.getElementById('times-btn').onclick = function(){
 		//var res = x + y;
 		document.getElementById('result').innerHTML = Number(document.getElementById('first-number').value) * Number(document.getElementById('second-number').value);
 	}
-
 	document.getElementById('divide-btn').onclick = function(){
 		//var res = x + y;
-		document.getElementById('result').innerHTML = Number(document.getElementById('first-number').value) / Number(document.getElementById('second-number').value);
+		x = document.getElementById('first-number').value;
+		y = document.getElementById('second-number').value;
+		numx = typeof x;
+		//window.alert(typeof x);
+		try{
+			if(y == '0') throw '被除数不能为0';
+
+		}
+		catch(err){
+			document.getElementById('eit').innerHTML = '错误：' + err;
+		}
+		var res = Number(x) / Number(y);
+		document.getElementById('result').innerHTML = res;
 	}
-
-
-
-
 	
     </script>
 </body>
