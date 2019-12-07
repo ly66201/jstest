@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <input id="name" type="text" onkeydown="myFunction(event)"> 
+<button id="submit-btn">Submit</button>
+<p id="demo"></p>
+    <script>
+    //点击butn提交input值到console.log
+    document.getElementById('submit-btn').onclick = function(){
+    		var x = document.getElementById("name").value;
+    		console.log(x);
+    	}
+    	
+    function myFunction(event) {
+    	var x = event.which || event.keyCode;
+    	//document.getElementById("demo").innerHTML = " Unicode 值为: " + x;
+    	if(x == 13){
+    		//按下回车提交输入值到console.log
+    		var x = document.getElementById("name").value;
+    		console.log(x);
+    	}else if(x == 27){
+    		//按下esc键清空输入内容
+    		document.getElementById("name").value = "";
+    	}
+	}	
+
+    </script>
+</body>
+</html>
