@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <div id="fade-obj" style="width:300px;height:300px;background:#000;opacity:1"></div>
+    <button id="fade-btn">淡出</button>
+    <script type="text/javascript">
+    //点击事件
+    document.getElementById("fade-btn").onclick = btn;
+    //判断按钮状态 淡入||淡出
+    function btn(){
+        var x = document.getElementById('fade-btn').firstChild.nodeValue; 
+        //alert(x);
+        if (x == "淡出") {
+            i = setInterval("set()",50);
+        }else if(x == "淡入"){
+            i1 = setInterval("set2()",500);
+        }
+    }
+    //淡出函数
+    function set(){
+        //设置按钮状态不可点击
+        document.getElementById("fade-btn").disabled=true;
+        //获取透明度css
+        var opa = document.getElementById('fade-obj').style.opacity; 
+         opa = opa - 0.1;
+         console.log(opa);
+         document.getElementById('fade-obj').style.opacity = opa;
+         //判断透明度小于等于0 结束动画
+         if (opa <= 0) {
+            clearInterval(i);
+            document.getElementById("fade-btn").innerHTML = "淡入";
+            document.getElementById("fade-btn").disabled=false;
+         }
+      }
+    //淡入函数
+    function set2(){
+        document.getElementById("fade-btn").disabled=true;
+        var opa = document.getElementById('fade-obj').style.opacity; 
+         opa = Number(opa) + 0.1;
+        // alert(typeof opa);
+         console.log(opa);
+         document.getElementById('fade-obj').style.opacity = opa;
+         if (opa >= 1) {
+            clearInterval(i1);
+            document.getElementById("fade-btn").innerHTML = "淡出";
+            document.getElementById("fade-btn").disabled=false;
+         }
+     }
+    </script>
+</body>
+</html>
