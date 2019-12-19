@@ -30,18 +30,16 @@
         <option>爱奇艺</option>        
     </select>
     <script>
-    	document.getElementById("school").onclick = function(){
-    		document.getElementById("school-select").style.display = "block";
-    	}
-    	document.getElementById("school").onblur = function(){
-    		document.getElementById("school-select").style.display = "none";
-    	}
-    	document.getElementById("company").onclick = function(){
-    		document.getElementById("company-select").style.display = "block";
-    	}
-    	document.getElementById("company").onblur = function(){
-    		document.getElementById("company-select").style.display = "none";
-    	}
+    var inp = document.getElementsByTagName('input');
+    var sel = document.getElementsByTagName('select');
+    inp[0].onclick = function(){
+        sel[0].style.display = 'block';
+        sel[1].style.display = 'none';
+    }
+    inp[1].onclick = function(){
+        sel[1].style.display = 'block';
+        sel[0].style.display = 'none';
+    }
     </script>
 </body>
 </html>
