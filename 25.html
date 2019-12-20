@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+</head>
+<body>        
+    <div id="img" ></div>
+    <style>
+        #img{
+            background-image:url('http://ife.baidu.com/2016/static/img/erik_ce204002.jpg');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            width: 480px;
+            height: 480px;
+        }
+    </style>
+    <script type="text/javascript">
+    //onload事件 页面加载完成触发
+    	window.onload = function(){
+	        var pos = 0;
+          //定时器 循环调用 间隔100毫秒  函数不加引号 不带括号
+	        var se = window.setInterval(seet,100);
+	        function seet(){
+	        	//判断如果 纵坐标小于-7200 减480
+	            if (pos >=-7200) {
+	                pos -= 480;
+	            }else{
+              //如果等于-7200 计时器停止
+	            	clearInterval(se);
+	            }
+              //拼接css语句 修改背景定位坐标
+	            var text = 'background-position:0px'+' ' + pos + 'px';
+	            console.log(text);
+              //修改css背景坐标值
+	         	document.getElementById('img').style.cssText = text;
+	        }
+	        
+        }
+    
+    
+    </script>
+</body>
+</html>
