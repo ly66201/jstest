@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="d"></div>
+		<script>
+			function myDate(){
+			var mDate = new Date();
+			year = mDate.getFullYear();
+			month = mDate.getMonth();
+			day = mDate.getDate();
+			zhou = mo(mDate.getDay());
+			h = mDate.getHours();
+			if(h<12){
+				apm = 'am';
+			}else{
+				apm = "pm";
+			}
+			if(h>12){
+				h = h-12;
+			}
+			hh = da(h);
+			mm = da(mDate.getMinutes());
+			ss = da(mDate.getSeconds());
+			
+			document.getElementById('d').innerHTML =year + '-'+month +'-'+day + '  ' +zhou +'   '+ hh + ':' + mm +':' +ss+'  ' + apm; 
+			setTimeout(myDate,100);
+			}
+			myDate();
+			function da(i){
+				if(i<10){
+					i = '0' + i;
+				}
+				return i;
+			}
+			function mo(j){
+				switch(j){
+					case 1 :
+						j = "monday";
+						break;
+					case 4 :
+						j = "friday";
+						break;
+				}
+				return j;
+			}
+		</script>
+	</body>
+</html>
